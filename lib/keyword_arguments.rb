@@ -22,6 +22,7 @@ class Module
   private
   def define_our_temporary_method_added
     # only define our hooks once, even if we add requirements as well as defaults/allowed arguments
+    @defined_temporary_method_added ||= false
     return if @defined_temporary_method_added
     @defined_temporary_method_added = true
 
