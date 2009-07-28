@@ -70,12 +70,23 @@ class Module
             raise ArgumentError, "Missing arguments: #{missing.join(', ')}", caller
           end
 
-          # call the real method
-          case hook
-          when :method_added
-            our_method.bind(self).call(args)
-          when :singleton_method_added
-            our_method.call(args)
+          begin
+            # call the real method
+            case hook
+            when :method_added
+              our_method.bind(self).call(args)
+            when :singleton_method_added
+              our_method.call(args)
+            end
+          rescue => e
+            # hiding ourself from the backtrace
+            bt = e.backtrace
+            r = /^#{Regexp.escape(__FILE__)}:\d+:in/
+              bt.delete_if do |line|
+              line =~ r
+            end
+            e.set_backtrace bt
+            raise e
           end
         end
 
