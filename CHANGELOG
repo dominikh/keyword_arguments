@@ -1,1 +1,5 @@
+v0.0.2.
+- hiding keyword_arguments from the backtrace
+- no more warnings
+
 v0.0.1. first version. enjoy!
