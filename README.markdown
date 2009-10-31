@@ -19,7 +19,7 @@ Module, which make working with argument hashes in Ruby a bit easier.
     require 'keyword_arguments'
 
     class Test
-      default_arguments a: 1, b: 2, c: 3
+      default_arguments {{a: 1, b: 2, c: 3}}
       def laissez_faire(args = {})
         args
       end
@@ -54,7 +54,12 @@ modules and included modules.
 
 ## Special notes
 
-You shouldn't redefine any of the *_arguments methods
-(as in `class Test; def self.default_arguments; nil; end; end`)
-because then you won't be able to use the ones from our package
-unless you use `::Module.default_arguments`
+* You shouldn't redefine any of the \*\_arguments methods
+  (as in
+
+      class Test; def self.default_arguments; nil; end; end
+
+  because then you won't be able to use the ones from our package
+  unless you use `::Module.default_arguments`
+
+* default arguments are to be passed as blocks returning hashes.

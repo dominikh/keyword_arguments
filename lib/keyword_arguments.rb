@@ -8,8 +8,8 @@ class Module
   end
 
   # Sets default arguments for the next method defined
-  def default_arguments(args = { })
-    @current_default_arguments = args
+  def default_arguments(&block)
+    @current_default_arguments = block
     define_our_temporary_method_added
   end
 
@@ -40,7 +40,7 @@ class Module
 
         # store the instance variables in local ones so we can use them in the following blocks
         current_required_arguments = @current_required_arguments || []
-        current_default_arguments  = @current_default_arguments  || Hash.new
+        current_default_arguments  = @current_default_arguments  || lambda {{}}
         current_allowed_arguments  = @current_allowed_arguments  || []
 
         # methods and singleton methods have other means of being get/defined
@@ -65,7 +65,7 @@ class Module
           end
 
           # check for missing keys
-          args = current_default_arguments.merge args
+          args = current_default_arguments.call.merge args
           missing = current_required_arguments - args.keys
           unless missing.empty?
             raise ArgumentError, "Missing arguments: #{missing.join(', ')}", caller
