@@ -22,7 +22,6 @@ spec = Gem::Specification.new do |s|
   s.add_dependency "keyword_arguments"
 
   s.add_development_dependency "baretest"
-  s.add_development_dependency "mocha"
 
   s.files = FileList["bin/*", "lib/**/*.rb", "[A-Z]*", "examples/**/*"].to_a
   s.executables = [""]

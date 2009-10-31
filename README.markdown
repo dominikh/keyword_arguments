@@ -7,7 +7,6 @@ Module, which make working with argument hashes in Ruby a bit easier.
 
 - This only works with Ruby 1.9. This, however, is as far as I know no
   big problem because there is also a gem for Ruby 1.8...
-- The tests require mocha to run
 
 ## Installation
 
