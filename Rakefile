@@ -21,7 +21,6 @@ spec = Gem::Specification.new do |s|
 
   s.add_dependency "keyword_arguments"
 
-  s.add_development_dependency "fakeweb"
   s.add_development_dependency "baretest"
   s.add_development_dependency "mocha"
 
