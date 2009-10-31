@@ -1,0 +1,23 @@
+2009-10-31  Dominik Honnef  <dominikho@gmx.net>
+
+	* README.markdown: updated README to reflect recent changes
+
+	* lib/keyword_arguments.rb (Module#define_our_temporary_method_added): default arguments are now evaluated blocks
+	(Module#default_arguments): same
+
+	* Rakefile: fixed gem description
+	replaced Echoe with own gemspec
+	bumped version to 0.1.0
+
+	* CHANGELOG: replaced by ChangeLog
+
+2009-07-27  Dominik Honnef  <dominikho@gmx.net>
+
+	* lib/keyword_arguments: hiding keyword_arguments from the backtrace
+	avoid warnings
+
+	* CHANGELOG: bumped version to 0.0.2
+
+2009-07-24  Dominik Honnef  <dominikho@gmx.net>
+
+	* *: initial release of version 0.0.1
