@@ -1,3 +1,7 @@
+2010-04-05  Dominik Honnef  <dominikho@gmx.net>
+
+	* lib/keyword_arguments.rb (Module#define_our_temporary_method_added): added support for blocks
+
 2009-10-31  Dominik Honnef  <dominikho@gmx.net>
 
 	* test/*: replaced test/unit with baretest

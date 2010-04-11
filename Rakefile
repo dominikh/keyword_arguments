@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'rake/gempackagetask'
 
-VERSION = "0.1.0"
+VERSION = "0.1.1"
 
 spec = Gem::Specification.new do |s|
   s.name              = "keyword_arguments"

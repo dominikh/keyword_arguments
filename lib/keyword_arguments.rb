@@ -53,7 +53,7 @@ class Module
           which_define_method = :define_singleton_method
         end
 
-        self.send(which_define_method, name) do |*args|
+        self.send(which_define_method, name) do |*args, &block|
           args = args[0] || Hash.new
 
           # check for unallowed keys
@@ -75,9 +75,9 @@ class Module
             # call the real method
             case hook
             when :method_added
-              our_method.bind(self).call(args)
+              our_method.bind(self).call(args, &block)
             when :singleton_method_added
-              our_method.call(args)
+              our_method.call(args, &block)
             end
           rescue => e
             # hiding ourself from the backtrace
